@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Free Data</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    font-family:Arial;
+    color:white;
+}
+.box{
+    text-align:center;
+    padding:30px;
+    background:rgba(0,0,0,0.55);
+    border-radius:18px;
+    width:90%;
+    max-width:360px;
+}
+button,a{
+    margin-top:20px;
+    padding:14px 32px;
+    border:none;
+    background:#00e676;
+    color:#000;
+    font-weight:bold;
+    border-radius:30px;
+    cursor:pointer;
+    text-decoration:none;
+    display:inline-block;
+}
+.hidden{display:none;}
+
+/* Loader */
+.loader{
+    width:50px;
+    height:50px;
+    border:5px solid #444;
+    border-top:5px solid #00e676;
+    border-radius:50%;
+    animation:spin 1s linear infinite;
+    margin:20px auto;
+}
+@keyframes spin{
+    0%{transform:rotate(0deg);}
+    100%{transform:rotate(360deg);}
+}
+.success{
+    color:#00e676;
+    font-size:22px;
+    font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<!-- STEP 1 -->
+<div class="box" id="step1">
+    <h1>🎁 Free Data Offer</h1>
+    <p>Click continue to start process</p>
+    <button onclick="startProcess()">Continue</button>
+</div>
+
+<!-- STEP 2: LOADING -->
+<div class="box hidden" id="step2">
+    <h2>Processing...</h2>
+    <div class="loader"></div>
+    <p>Please wait</p>
+</div>
+
+<!-- STEP 3: SUCCESS -->
+<div class="box hidden" id="step3">
+    <div class="success">✔ Successful</div>
+    <p>Verification completed</p>
+</div>
+
+<!-- STEP 4: FINAL -->
+<div class="box hidden" id="step4">
+    <h2>🚀 Almost Done</h2>
+    <p>Join Telegram to activate free data</p>
+    <a href="YOUR_TG_LINK">Join Telegram</a>
+</div>
+
+<script>
+function startProcess(){
+    step1.style.display="none";
+    step2.style.display="block";
+
+    setTimeout(()=>{
+        step2.style.display="none";
+        step3.style.display="block";
+    },3000);
+
+    setTimeout(()=>{
+        step3.style.display="none";
+        step4.style.display="block";
+    },5000);
+}
+</script>
+
+</body>
+</html>
